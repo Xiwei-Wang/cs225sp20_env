@@ -136,7 +136,7 @@ Fork at first, then submit pull requrests.
 
 Instructors, TAs and Some Students of UIUC CS 225 SP20 ZJUI Course
 
-* Instructorts
+* Instructors
   * Prof. Dr. Klaus-Dieter Schewe
 
 * TAs
