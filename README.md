@@ -157,11 +157,11 @@ Instructors, TAs and Some Students of UIUC CS 225 SP20 ZJUI Course
 
 * <1.0> - <2020-04-26>
   
-For more information, see [ChangeLog.md](../ChangeLog.md)
+For more information, see [ChangeLog.md](./ChangeLog.md)
 
 ## License
 
-[MIT © Instructors, TAs and Some Students of UIUC CS 225 SP20 ZJUI Course](../LICENSE)
+[MIT © Instructors, TAs and Some Students of UIUC CS 225 SP20 ZJUI Course](./LICENSE)
 
 **ATTENTION**
 
