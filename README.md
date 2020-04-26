@@ -9,7 +9,7 @@ It also aims to build stronger classes via cooperations of students.
 **Due to academic integrity, students who will take UIUC CS 225 ZJUI Course taught with Python later than Spring 2020 semester are NOT authorized with the access
 to this package!**
 
-Version 1.0
+Version 1.1
 
 Date 26 April 2020
 
@@ -98,7 +98,7 @@ are related with enabling *.py files instead of *.ipynb files calling Jupyter se
 
 ### Demo
 
-* demo.py <1.0>
+* demo.py <1.1>
 
 ## Dependency
 
@@ -155,6 +155,7 @@ Instructors, TAs and Some Students of UIUC CS 225 SP20 ZJUI Course
 
 ## Update
 
+* <1.1> - <2020-04-26>
 * <1.0> - <2020-04-26>
   
 For more information, see [ChangeLog.md](./ChangeLog.md)

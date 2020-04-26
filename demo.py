@@ -36,7 +36,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ---------
 File cs225sp20_env/demo.py
-Version 1.0
+Version 1.1
 '''
 # %%
 import sys
@@ -49,3 +49,13 @@ from cs225sp20_env import *
 if True:
     print([class_ for class_ in locals()])
 print("loading success")
+
+# %%
+# __str__ and __repr__ of PyList
+print()
+list1=PyList([1,2,3,4])
+print(list1)
+print(repr(list1))
+list2=eval(repr(list1))
+print(type(list2))
+print(list2)
