@@ -9,9 +9,9 @@ It also aims to build stronger classes via cooperations of students.
 **Due to academic integrity, students who will take UIUC CS 225 ZJUI Course taught with Python later than Spring 2020 semester are NOT authorized with the access
 to this package!**
 
-Version 1.1
+Version 1.2
 
-Date 26 April 2020
+Date 31 May 2020
 
 ## Table of Contents
 - [UIUC CS 225 SP20 ZJUI Environment](#uiuc-cs-225-sp20-zjui-environment)
@@ -62,9 +62,9 @@ are related with enabling *.py files instead of *.ipynb files calling Jupyter se
 * \_\_init__.py <1.0>
 * List/
   * \_\_init__.py <1.0>
-  * PyList.py <1.0>
+  * PyList.py <1.2>
   * SPyList.py <1.0>
-  * DLinkedList.py <1.0>
+  * DLinkedList.py <1.2>
   * LinkedList.py <1.0>
   * Fifo.py <1.0>
   * Stack.py <1.0>
@@ -155,6 +155,7 @@ Instructors, TAs and Some Students of UIUC CS 225 SP20 ZJUI Course
 
 ## Update
 
+* <1.2> - <2020-05-31>
 * <1.1> - <2020-04-26>
 * <1.0> - <2020-04-26>
   

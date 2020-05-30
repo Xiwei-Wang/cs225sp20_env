@@ -36,7 +36,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ---------
 File cs225sp20_env/List/DLinkedList.py
-Version 1.0
+Version 1.2
 '''
 # %%
 class DLinkedList:
@@ -46,6 +46,12 @@ class DLinkedList:
             self.item = item
             self.next = next
             self.previous = previous
+
+        def __str__(self):
+            return str(self.item)
+
+        def __repr__(self):
+            return str(self.item)+",pre:"+self.previous.getItem()+",next:"+self.next.getItem()
 
         def getItem(self):
             return self.item
@@ -138,9 +144,10 @@ class DLinkedList:
             begin = other.locate(index1)
             end = other.locate(index2)
             self.insertList(begin, end, index)
+            self.numItems += index2-index1+1
 
     def insertList(self, begin, end, index):
-        address = locate(self, index)
+        address = self.locate(index)
         successor = address.getNext()
         begin.setPrevious(address)
         end.setNext(successor)
@@ -156,9 +163,9 @@ class DLinkedList:
         counter = self.numItems
         while counter != 0:
             location = self.getMinimum(firstNode, lastNode)
-            self.cut(firstNode, lastNode, location)
+            firstNode, lastNode = self.cut(firstNode, lastNode, location)
             # fixed bug: self.addLocation(location)
-            self.addLocation(location, outlast)
+            outlast = self.addLocation(location, outlast)
             counter -= 1
 
     def getMinimum(self, first, last):
@@ -175,22 +182,24 @@ class DLinkedList:
 
     def cut(self, first, last, location):
         if location == first:
-            first = location
+            first = location.getNext()
         else:
             if location == last:
-                last = location
+                last = location.getPrevious()
             else:
                 prev = location.getPrevious()
                 next = location.getNext()
                 prev.setNext(next)
                 next.setPrevious(prev)
+        return first,last
 
     def addLocation(self, location, outlast):
         location.setPrevious(outlast)
         location.setNext(self.first)
         outlast.setNext(location)
-        outlast = location
         self.first.setPrevious(location)
+        new_outlast = location
+        return new_outlast
 
     def InsertionSort(self):
         cursor = self.first.getNext()
@@ -203,15 +212,21 @@ class DLinkedList:
         
     def addout(self,cursor):
         cursor2 = self.first.getNext()
-        while (cursor2 != self.first and cursor2.getItem() < cursor.getItem() and cursor2.getNext() != self.first):
+        while (    cursor2 != self.first\
+               and cursor2.getItem() < cursor.getItem()\
+               and cursor2.getNext() != self.first):
+            # cursor2 is the first node larger than given node  OR  the last node
             cursor2 = cursor2.getNext()
-        if cursor2 != self.first and cursor2.getItem() >= cursor.getItem():   #insert before cursor2
+
+        #insert before cursor2
+        if cursor2 != self.first and cursor2.getItem() >= cursor.getItem():
             previous = cursor2.getPrevious()
             previous.setNext(cursor)
             cursor.setNext(cursor2)
             cursor.setPrevious(previous)
             cursor2.setPrevious(cursor)
-        else:                                       #insert at the end of the output
+        #insert at the end of the output
+        else:
             cursor2.setNext(cursor)
             cursor.setNext(self.first)
             cursor.setPrevious(cursor2)
@@ -221,4 +236,36 @@ class DLinkedList:
 if __name__ == "__main__":
     l = DLinkedList([124, 134, 5, 6, 23, 4, 5])
     l.printList()
+    print(l)
+
+# test splice
+    l1 = DLinkedList([1,2,3,4,5,6])
+    l2 = DLinkedList([10,20,30,40,50])
+    l1.splice(3,l2,1,3)
+    print(l1)
+
+# test SelectionSort
+    l = DLinkedList([1,2,3,4,5,6,7])
+    l.SelectionSort()
+    print(l)
+
+    l = DLinkedList([7,6,5,4,3,2,1])
+    l.SelectionSort()
+    print(l)
+
+    l = DLinkedList([7,6,5,1,2,3,4])
+    l.SelectionSort()
+    print(l)
+
+# test InsertionSort
+    l = DLinkedList([1,2,3,4,5,6,7])
+    l.InsertionSort()
+    print(l)
+
+    l = DLinkedList([7,6,5,4,3,2,1])
+    l.InsertionSort()
+    print(l)
+
+    l = DLinkedList([7,6,5,1,2,3,4])
+    l.InsertionSort()
     print(l)

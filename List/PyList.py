@@ -36,7 +36,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ---------
 File cs225sp20_env/List/PyList.py
-Version 1.0
+Version 1.2
 ''' 
 # %%
 class PyList(list):
@@ -79,7 +79,7 @@ class PyList(list):
         for i in range(self.numItems):
             result.append(self.items[i])
         for i in range(other.numItems):
-            result.append(self.items[i])
+            result.append(other.items[i])
         return result
 
     def __iter__(self):
@@ -88,12 +88,12 @@ class PyList(list):
                 yield i
 
     def __str__(self):
-        return "["+", ".join(str(e) for e in self.items[:self.numItems])+"]"
+        return str(self.items[:self.numItems])
 
     def __repr__(self):
-        return "PyList(["+", ".join(str(e) for e in self.items[:self.numItems])+"])"
+        return str(self.items)
 
-    def list(self):
+    def tolist(self):
         return self.items[:self.numItems]
 
     def index(self, val):
@@ -180,14 +180,37 @@ class PyList(list):
             item1 = item // (digits ** round) % digits
             bucket[item1].append(item)
         result = bucket[0]
-        for k in range(digits-1):
-            result = result + bucket[k+1]
+        for k in range(1,digits):
+            result = result + bucket[k]
+        return result
 
 # %%
 if __name__ == "__main__":
-    l1=PyList([1,2,3])
-    print(l1)
-    l2=eval(repr(l1))
-    print(l2)
-    a=l1.list()
-    print(a)
+# test print function
+    l=PyList([1,2,3])
+    print(l)
+    print(l.__repr__())
+    a=l.tolist()
+    print(type(a),a)
+
+# test basic function
+    numbers = list(range(1,40))
+    l = PyList([])
+    for i in numbers:
+        l.append(i)
+    print(l)
+    for i in numbers[3:35]:
+        l.delete(l.index(i))
+    print(l)
+    for i in range(3,19):
+        l.insert(i,numbers[i])
+    print(l)
+
+# test sort methods
+    l=PyList([43,13,56,84,9656,3,42,78,9])
+    # non inplace sort methods:
+    result = l.radixSort(4,10)
+    print(result)
+
+    result = l.qsort()
+    print(result)

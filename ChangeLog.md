@@ -4,6 +4,8 @@
 
 - [Change Log](#change-log)
   - [Catalog](#catalog)
+  - [<1.2> - <2020-05-31>](#12---2020-05-31)
+    - [Update Class](#update-class)
   - [<1.1> - <2020-04-26>](#11---2020-04-26)
     - [Update Demo](#update-demo)
   - [<1.0> - <2020-04-26>](#10---2020-04-26)
@@ -11,6 +13,14 @@
     - [Add Demo](#add-demo)
     - [Add License](#add-license)
     - [Add .gitignore](#add-gitignore)
+
+## <1.2> - <2020-05-31>
+
+### Update Class
+
+* List/
+  * PyList.py <1.2>
+  * DLinkedList.py <1.2>
 
 ## <1.1> - <2020-04-26>
 
